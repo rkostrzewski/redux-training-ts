@@ -1,14 +1,13 @@
-1. Struktura danych przechowywanych w aplikacji została znormalizowana.
-  ShopState został rozdzielony na dwa mniejsze - ProductsState, CategoriesState
-  Zapoznaj się z kształtem stanu po normalizacji poprzez definicje w:
-  - `src/modules/cart/types`
-  - `src/modules/products/types`
-  - `src/modules/categories/types`
-2. Zaimplementuj normalizację danych ładowanych z pliku json w reducerach:
-  - `src/modules/products/reducer`
-  - `src/modules/categories/reducer`
-3. Zaimplementuj selectory w nowej strukturze danych
-  - `src/modules/products/selectors`
-  - `src/modules/categories/selectors`
-  - `src/modules/cart/selectors`
-4. Jeszcze raz zaimplementuj logikę reducera związaną z dodawaniem produktów do koszyka w nowej strukturze (testy zostały zaktualizowane)
+1. Został dodany nowy middleware `redux-thunk` zapoznaj się w jaki sposób poprzez zmiany w pliku `src/store`
+2. Został dodany nowy typ `Dispatch`, który będzie wykorzystywany w kodzie w pliku `src/modules/types`
+3. komponent App został przeniesiony do `src/components/App` i zamiast niego jest opakowaywany przez kontener w `src/containers/AppContainer`. `App` teraz ładuje produkty i wyświetla wiadomość kiedy nie udało się ich załadować
+4. Zaimplmentuj asynchroniczną akcję ładowania produktów i zapisywania ich w stanie:
+- `src/modules/products/actions.ts`
+- `src/modules/products/constants.ts`
+- `src/modules/products/reducer.ts`
+- `src/modules/categories/reducer.ts`
+
+Nie zapomnij dodać obsługi wyciągania kategorii z produktów po załadowaniu. Możesz też zmienić typy `ProductsAction` i `CategoriesAction` na nowo zaimplementowane.
+
+W przypadku typów akcji wywoływanych przez thunki można stosować konwencję
+`XXX_STARTED`, `XXX_SUCCESS`, `XXX_FAILURE` (np. `LOAD_PRODUCTS_STARTED`)

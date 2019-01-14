@@ -1,7 +1,7 @@
 import { AppState } from '../types';
 import { Product } from './types';
 
-const selectProductsState = (state: AppState) => state.products
+export const selectProductsState = (state: AppState) => state.products
 
 export const selectProductsByCategory = (state: AppState, categoryId: number): Product[] => {
   const products = selectProductsState(state)
@@ -11,7 +11,6 @@ export const selectProductsByCategory = (state: AppState, categoryId: number): P
     .filter(p => p.categoryId === categoryId);
 }
 
-// TODO: Implement
 export const selectProductDetailsById = (state: AppState, productId: number): Product | undefined => {
   const products = selectProductsState(state)
 

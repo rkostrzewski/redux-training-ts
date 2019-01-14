@@ -3,10 +3,9 @@ import { RouteComponentProps } from 'react-router';
 
 import { selectProductDetailsById } from '../modules/products/selectors';
 import { addProductToCart } from '../modules/cart/actions'
-import { AppState } from '../modules/types';
+import { AppState, Dispatch } from '../modules/types';
 
 import ProductDetails from '../components/ProductDetails'
-import { Dispatch } from 'redux';
 
 const mapStateToProps = (state: AppState, props: RouteComponentProps<any>) => {
   const productId = Number(props.match.params.productId)

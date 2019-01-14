@@ -10,6 +10,8 @@ export interface Product {
 }
 
 export interface ProductsState {
+  loaded: boolean;
+  loadingError?: string;
   byId: {
     [key: number]: Product | undefined;
   }

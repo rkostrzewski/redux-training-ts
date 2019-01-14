@@ -1,6 +1,5 @@
 import { ProductsState, ProductsAction, Product } from './types';
 import { ProductDto } from '../dtos';
-import products from '../products.json'
 
 const getNormalizedProductsById = (products: ProductDto[]) => {
   return products.reduce(
@@ -20,7 +19,8 @@ const getNormalizedProductsById = (products: ProductDto[]) => {
 }
 
 const initialState: ProductsState = {
-  byId: getNormalizedProductsById(products),
+  loaded: false,
+  byId: {},
 };
 
 const reducer = (state: ProductsState = initialState, action: ProductsAction) => {

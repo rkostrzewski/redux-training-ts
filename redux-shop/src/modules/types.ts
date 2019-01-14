@@ -1,3 +1,4 @@
+import { Action, Dispatch as ReduxDispatch } from 'redux';
 import { ProductsState } from './products/types';
 import { CategoriesState } from './categories/types';
 import { CartState } from './cart/types';
@@ -7,3 +8,5 @@ export interface AppState {
   categories: CategoriesState;
   cart: CartState;
 }
+
+export type Dispatch = ReduxDispatch<Action, AppState>;

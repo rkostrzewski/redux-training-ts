@@ -1,8 +1,6 @@
 import { CategoriesState, CategoriesAction, Category } from './types';
 import { ProductDto } from '../dtos';
-import products from '../products.json'
 
-// TODO: Implement
 const getNormalizedCategoriesById = (products: ProductDto[]) => {
   return products.reduce(
     (byId, { category }) => ({
@@ -18,7 +16,7 @@ const getNormalizedCategoriesById = (products: ProductDto[]) => {
 }
 
 const initialState: CategoriesState = {
-  byId: getNormalizedCategoriesById(products),
+  byId: {},
 };
 
 const reducer = (state: CategoriesState = initialState, action: CategoriesAction) => {
