@@ -1,4 +1,9 @@
-import { ADD_PRODUCT_TO_CART } from './constants';
+import {
+  ADD_PRODUCT_TO_CART,
+  INCREASE_PRODUCT_QUANTITY,
+  DECREASE_PRODUCT_QUANTITY,
+  REMOVE_PRODUCT_FROM_CART,
+} from './constants';
 
 export interface AddProductToCart {
   type: typeof ADD_PRODUCT_TO_CART;
@@ -6,19 +11,46 @@ export interface AddProductToCart {
   quantity: number;
 }
 
-// TODO: Implement actions and interfaces
 export const addProductToCart = (productId: number, quantity: number): AddProductToCart => {
-  throw new Error('Not implemented')
+  return {
+    type: ADD_PRODUCT_TO_CART,
+    productId,
+    quantity
+  }
 }
 
-export const increaseProductQuantity = (productId: number) => {
-  throw new Error('Not implemented')
+export interface IncreaseProductQuantity {
+  type: typeof INCREASE_PRODUCT_QUANTITY;
+  productId: number;
 }
 
-export const decreaseProductQuantity = (productId: number) => {
-  throw new Error('Not implemented')
+export const increaseProductQuantity = (productId: number): IncreaseProductQuantity => {
+  return {
+    type: INCREASE_PRODUCT_QUANTITY,
+    productId
+  }
+}
+
+export interface DecreaseProductQuantity {
+  type: typeof DECREASE_PRODUCT_QUANTITY;
+  productId: number;
+}
+
+export const decreaseProductQuantity = (productId: number): DecreaseProductQuantity => {
+  return {
+    type: DECREASE_PRODUCT_QUANTITY,
+    productId
+  }
+}
+
+export interface RemoveProductFromCart {
+  type: typeof REMOVE_PRODUCT_FROM_CART;
+  productId: number;
 }
 
 export const removeProductFromCart = (productId: number) => {
-  throw new Error('Not implemented')
+  return {
+    type: REMOVE_PRODUCT_FROM_CART,
+    productId
+  }
 }
