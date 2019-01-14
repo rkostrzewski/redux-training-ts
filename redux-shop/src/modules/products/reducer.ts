@@ -1,10 +1,22 @@
-import { ProductsState, ProductsAction } from './types';
+import { ProductsState, ProductsAction, Product } from './types';
 import { ProductDto } from '../dtos';
 import products from '../products.json'
 
-// TODO: Implement
 const getNormalizedProductsById = (products: ProductDto[]) => {
-  throw new Error('Not implemented');
+  return products.reduce(
+    (byId, product) => ({
+      ...byId,
+      [product.id]: {
+        id: product.id,
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        image: product.image,
+        categoryId: product.category.id,
+      }
+    }),
+    {} as { [id: number]: Product }
+  )
 }
 
 const initialState: ProductsState = {

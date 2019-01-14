@@ -7,7 +7,13 @@ interface ProductInCartDetails {
   quantity: number;
 }
 
-// TODO: Implement and use selectProductDetailsById to retrieve a product
 export const selectCartProductsDetails = (state: AppState): ProductInCartDetails[] => {
-  throw new Error('Not implemented');
+  const { quantityByProductId } = state.cart;
+
+  return Object.keys(quantityByProductId)
+    .map(productId => Number(productId))
+    .map(productId => ({
+      product: selectProductDetailsById(state, productId),
+      quantity: quantityByProductId[productId]
+    }));
 }

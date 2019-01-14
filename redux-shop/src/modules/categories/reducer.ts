@@ -1,10 +1,20 @@
-import { CategoriesState, CategoriesAction } from './types';
+import { CategoriesState, CategoriesAction, Category } from './types';
 import { ProductDto } from '../dtos';
 import products from '../products.json'
 
 // TODO: Implement
 const getNormalizedCategoriesById = (products: ProductDto[]) => {
-  throw new Error('Not implemented');
+  return products.reduce(
+    (byId, { category }) => ({
+      ...byId,
+      [category.id]: {
+        id: category.id,
+        name: category.name,
+        image: category.image,
+      }
+    }),
+    {} as { [id: number]: Category }
+  )
 }
 
 const initialState: CategoriesState = {

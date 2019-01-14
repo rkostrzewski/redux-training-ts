@@ -3,16 +3,17 @@ import { Product } from './types';
 
 const selectProductsState = (state: AppState) => state.products
 
-// TODO: Implement
 export const selectProductsByCategory = (state: AppState, categoryId: number): Product[] => {
   const products = selectProductsState(state)
 
-  throw new Error('Not implemented')
+  return Object.values(products.byId)
+    .filter((p): p is Product => p != null)
+    .filter(p => p.categoryId === categoryId);
 }
 
 // TODO: Implement
 export const selectProductDetailsById = (state: AppState, productId: number): Product | undefined => {
   const products = selectProductsState(state)
 
-  throw new Error('Not implemented')
+  return products.byId[productId];
 }
