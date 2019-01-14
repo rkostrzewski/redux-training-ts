@@ -1,7 +1,7 @@
 import React, { SFC } from 'react'
 import { Link } from 'react-router-dom'
 
-import { Category, Product } from '../../modules/shop/types';
+import { Category } from '../../modules/categories/types';
 
 import Button from '../Button'
 

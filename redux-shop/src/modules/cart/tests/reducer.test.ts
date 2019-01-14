@@ -1,5 +1,6 @@
 import cartReducer from '../reducer'
 import { addProductToCart, increaseProductQuantity, decreaseProductQuantity, removeProductFromCart } from '../actions'
+import { CartState } from '../types';
 
 describe('cartReducer', () => {
   it('should have initial state.', () => {
@@ -7,18 +8,19 @@ describe('cartReducer', () => {
     const action = { type: '@@INIT' }
 
     // When
+    
     const state = cartReducer(undefined, action as any)
 
     // Then
     expect(state).toEqual({
-      productsInCart: []
+      quantityByProductId: {}
     })
   })
 
   it('should add product to cart when addProductToCart action occurs.', () => {
     // Given
     const previousState = {
-      productsInCart: []
+      quantityByProductId: {}
     }
     const productId = 1
     const quantity = 2
@@ -29,9 +31,9 @@ describe('cartReducer', () => {
 
     // Then
     expect(nextState).toEqual({
-      productsInCart: [
-        { productId: 1, quantity: 2 }
-      ]
+      quantityByProductId: {
+        [1]: 2
+      }
     })
   })
 
@@ -39,9 +41,9 @@ describe('cartReducer', () => {
     // Given
     const productId = 1
     const previousState = {
-      productsInCart: [
-        { productId, quantity: 1 }
-      ]
+      quantityByProductId: {
+        [productId]: 1
+      }
     }
     const action = addProductToCart(productId, 2)
 
@@ -50,9 +52,9 @@ describe('cartReducer', () => {
 
     // Then
     expect(nextState).toEqual({
-      productsInCart: [
-        { productId: 1, quantity: 3 }
-      ]
+      quantityByProductId: {
+        [productId]: 3
+      }
     })
   })
 
@@ -60,9 +62,9 @@ describe('cartReducer', () => {
     // Given
     const productId = 1
     const previousState = {
-      productsInCart: [
-        { productId, quantity: 1 }
-      ]
+      quantityByProductId: {
+        [productId]: 1
+      }
     }
     const action = increaseProductQuantity(productId)
 
@@ -71,16 +73,16 @@ describe('cartReducer', () => {
 
     // Then
     expect(nextState).toEqual({
-      productsInCart: [
-        { productId: 1, quantity: 2 }
-      ]
+      quantityByProductId: {
+        [productId]: 2
+      }
     })
   })
 
   it('should do nothing when increaseProductQuantity action occurs for product not in cart.', () => {
     // Given
     const previousState = {
-      productsInCart: []
+      quantityByProductId: {}
     }
     const action = increaseProductQuantity(1)
 
@@ -89,7 +91,7 @@ describe('cartReducer', () => {
 
     // Then
     expect(nextState).toEqual({
-      productsInCart: []
+      quantityByProductId: {}
     })
   })
 
@@ -97,9 +99,9 @@ describe('cartReducer', () => {
     // Given
     const productId = 1
     const previousState = {
-      productsInCart: [
-        { productId, quantity: 2 }
-      ]
+      quantityByProductId: {
+        [productId]: 2
+      }
     }
     const action = decreaseProductQuantity(productId)
 
@@ -108,16 +110,16 @@ describe('cartReducer', () => {
 
     // Then
     expect(nextState).toEqual({
-      productsInCart: [
-        { productId: 1, quantity: 1 }
-      ]
+      quantityByProductId: {
+        [productId]: 1
+      }
     })
   })
 
   it('should do nothing when decreaseProductQuantity action occurs for product not in cart.', () => {
     // Given
     const previousState = {
-      productsInCart: []
+      quantityByProductId: {}
     }
     const action = decreaseProductQuantity(1)
 
@@ -126,7 +128,7 @@ describe('cartReducer', () => {
 
     // Then
     expect(nextState).toEqual({
-      productsInCart: []
+      quantityByProductId: {}
     })
   })
 
@@ -134,9 +136,9 @@ describe('cartReducer', () => {
     // Given
     const productId = 1
     const previousState = {
-      productsInCart: [
-        { productId, quantity: 1 }
-      ]
+      quantityByProductId: {
+        [productId]: 1
+      }
     }
     const action = decreaseProductQuantity(productId)
 
@@ -145,7 +147,7 @@ describe('cartReducer', () => {
 
     // Then
     expect(nextState).toEqual({
-      productsInCart: []
+      quantityByProductId: {}
     })
   })
 
@@ -153,9 +155,9 @@ describe('cartReducer', () => {
     // Given
     const productId = 1
     const previousState = {
-      productsInCart: [
-        { productId, quantity: 3 }
-      ]
+      quantityByProductId: {
+        [productId]: 3
+      }
     }
     const action = removeProductFromCart(productId)
 
@@ -164,7 +166,7 @@ describe('cartReducer', () => {
 
     // Then
     expect(nextState).toEqual({
-      productsInCart: []
+      quantityByProductId: {}
     })
   })
 })

@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 import { RouteComponentProps } from 'react-router';
 import classnames from 'classnames';
 
-import { Category } from '../../modules/shop/types';
+import { Category } from '../../modules/categories/types';
 import Link from '../Link';
 
 import styles from './navigationMenu.module.css';

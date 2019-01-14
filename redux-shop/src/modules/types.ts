@@ -1,7 +1,9 @@
-import { ShopState } from './shop/types';
+import { ProductsState } from './products/types';
+import { CategoriesState } from './categories/types';
 import { CartState } from './cart/types';
 
 export interface AppState {
-  shop: ShopState;
+  products: ProductsState;
+  categories: CategoriesState;
   cart: CartState;
 }

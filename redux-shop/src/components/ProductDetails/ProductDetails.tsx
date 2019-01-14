@@ -1,6 +1,6 @@
 import React, { Component, ChangeEvent } from 'react'
 
-import { Product } from '../../modules/shop/types';
+import { Product } from '../../modules/products/types';
 import Button from '../Button'
 
 import styles from './productDetails.module.css';

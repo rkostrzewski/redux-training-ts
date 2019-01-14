@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 import { RouteComponentProps } from 'react-router';
 
-import { selectCategoryById, selectProductsByCategory } from '../modules/shop/selectors'
+import { selectCategoryById } from '../modules/categories/selectors';
+import { selectProductsByCategory } from '../modules/products/selectors';
 import { AppState } from '../modules/types';
 
 import ProductList from '../components/ProductList'

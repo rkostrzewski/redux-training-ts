@@ -4,7 +4,7 @@ import Link from '../Link';
 import Button from '../Button';
 import ProductInCart from './ProductInCart'
 
-import { Product } from '../../modules/shop/types';
+import { Product } from '../../modules/products/types';
 
 import styles from './cart.module.css';
 

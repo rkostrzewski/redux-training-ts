@@ -1,13 +1,13 @@
-import { selectProductDetailsById } from '../shop/selectors'
+import { selectProductDetailsById } from '../products/selectors'
 import { AppState } from '../types';
+import { Product } from '../products/types';
 
-export const selectCartProductsDetails = (state: AppState) => {
-  const products = state.cart.productsInCart
+interface ProductInCartDetails {
+  product: Product | undefined;
+  quantity: number;
+}
 
-  return products.map(p => {
-    return {
-      product: selectProductDetailsById(state, p.productId),
-      quantity: p.quantity
-    }
-  })
+// TODO: Implement and use selectProductDetailsById to retrieve a product
+export const selectCartProductsDetails = (state: AppState): ProductInCartDetails[] => {
+  throw new Error('Not implemented');
 }

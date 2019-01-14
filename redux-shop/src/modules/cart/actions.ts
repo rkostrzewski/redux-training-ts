@@ -48,7 +48,7 @@ export interface RemoveProductFromCart {
   productId: number;
 }
 
-export const removeProductFromCart = (productId: number) => {
+export const removeProductFromCart = (productId: number): RemoveProductFromCart => {
   return {
     type: REMOVE_PRODUCT_FROM_CART,
     productId

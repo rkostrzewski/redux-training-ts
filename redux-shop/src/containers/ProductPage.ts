@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { RouteComponentProps } from 'react-router';
 
-import { selectProductDetailsById } from '../modules/shop/selectors'
+import { selectProductDetailsById } from '../modules/products/selectors';
 import { addProductToCart } from '../modules/cart/actions'
 import { AppState } from '../modules/types';
 

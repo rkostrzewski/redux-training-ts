@@ -2,7 +2,7 @@ import React, { SFC, DetailedHTMLProps, HTMLAttributes } from 'react';
 import classnames from 'classnames';
 
 import styles from './cart.module.css'
-import { Product } from '../../modules/shop/types';
+import { Product } from '../../modules/products/types';
 
 interface IconButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
 }
