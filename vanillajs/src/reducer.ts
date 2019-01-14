@@ -15,11 +15,19 @@ const initialState: AppState = {
 function reducer (state: AppState = initialState, action: ActionTypes) {
   switch (action.type) {
     case NEXT_SLIDE:
-      // TODO: Handle creating new state
-      throw new Error('Not implemented');
+      return {
+        currentSlideIndex: state.currentSlideIndex + 1 >= state.images.length
+          ? state.currentSlideIndex
+          : state.currentSlideIndex + 1,
+        images: state.images,
+      }
     case PREVIOUS_SLIDE:
-      // TODO: Handle creating new state
-      throw new Error('Not implemented');
+      return {
+        currentSlideIndex: state.currentSlideIndex - 1 < 0
+          ? state.currentSlideIndex
+          : state.currentSlideIndex - 1,
+        images: state.images,
+      }
     default:
       return state
   }
