@@ -1,5 +1,6 @@
 import { CategoriesState, CategoriesAction, Category } from './types';
 import { ProductDto } from '../dtos';
+import { LOAD_PRODUCTS_SUCCESS } from '../products/constants';
 
 const getNormalizedCategoriesById = (products: ProductDto[]) => {
   return products.reduce(
@@ -21,6 +22,11 @@ const initialState: CategoriesState = {
 
 const reducer = (state: CategoriesState = initialState, action: CategoriesAction) => {
   switch (action.type) {
+    case LOAD_PRODUCTS_SUCCESS:
+      return {
+        ...state,
+        byId: getNormalizedCategoriesById(action.products)
+      }
     default:
       return state
   }

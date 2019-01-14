@@ -1,4 +1,5 @@
 import { Action } from 'redux';
+import { LoadProductsSuccess } from '../products/actions';
 
 export interface Category {
   id: number;
@@ -12,4 +13,4 @@ export interface CategoriesState {
   }
 }
 
-export type CategoriesAction = Action;
+export type CategoriesAction = LoadProductsSuccess;

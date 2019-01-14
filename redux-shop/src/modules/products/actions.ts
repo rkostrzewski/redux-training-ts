@@ -1,10 +1,41 @@
 import { Dispatch } from "../types";
 import { ProductDto } from "../dtos";
+import { LOAD_PRODUCTS_FAILURE, LOAD_PRODUCTS_SUCCESS } from "./constants";
 
-// TODO: Implement using fetchProducts function
+export interface LoadProductsSuccess {
+  type: typeof LOAD_PRODUCTS_SUCCESS;
+  products: ProductDto[];
+}
+
+export const loadProductsSuccess = (products: ProductDto[]): LoadProductsSuccess => ({
+  type: LOAD_PRODUCTS_SUCCESS,
+  products
+})
+
+export interface LoadProductsFailure {
+  type: typeof LOAD_PRODUCTS_FAILURE;
+  error: string;
+}
+
+export const loadProductsFailure = (error: string): LoadProductsFailure => ({
+  type: LOAD_PRODUCTS_FAILURE,
+  error
+})
+
+
 export const loadProducts = () => {
   return (dispatch: Dispatch) => {
-    throw new Error('Not implemented')
+    fetchProducts()
+      .then(products => {
+        dispatch(
+          loadProductsSuccess(products)
+        )
+      })
+      .catch(error => {
+        dispatch(
+          loadProductsFailure(error.message)
+        )
+      })
   }
 }
 

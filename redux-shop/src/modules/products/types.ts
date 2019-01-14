@@ -1,4 +1,5 @@
 import { Action } from 'redux';
+import { LoadProductsSuccess, LoadProductsFailure } from './actions';
 
 export interface Product {
   id: number;
@@ -17,4 +18,5 @@ export interface ProductsState {
   }
 }
 
-export type ProductsAction = Action;
+export type ProductsAction = LoadProductsSuccess |
+  LoadProductsFailure;
