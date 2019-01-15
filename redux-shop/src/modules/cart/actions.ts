@@ -3,6 +3,7 @@ import {
   INCREASE_PRODUCT_QUANTITY,
   DECREASE_PRODUCT_QUANTITY,
   REMOVE_PRODUCT_FROM_CART,
+  CHECKOUT,
 } from './constants';
 
 export interface AddProductToCart {
@@ -54,3 +55,11 @@ export const removeProductFromCart = (productId: number): RemoveProductFromCart 
     productId
   }
 }
+
+export interface Checkout {
+  type: typeof CHECKOUT;
+}
+
+export const checkout = (): Checkout => ({
+  type: CHECKOUT
+})

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import { selectCartProductsDetails } from '../modules/cart/selectors'
-import { increaseProductQuantity, decreaseProductQuantity, removeProductFromCart } from '../modules/cart/actions'
+import { increaseProductQuantity, decreaseProductQuantity, removeProductFromCart, checkout } from '../modules/cart/actions'
 import { AppState } from '../modules/types';
 
 import Cart from '../components/Cart'
@@ -40,6 +40,7 @@ const mapDispatchToProps = {
   increaseQuantity: increaseProductQuantity,
   decreaseQuantity: decreaseProductQuantity,
   removeProduct: removeProductFromCart,
+  checkout: checkout,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart)

@@ -13,6 +13,7 @@ interface CartProps {
   increaseQuantity: (productId: number) => void;
   decreaseQuantity: (productId: number) => void;
   removeProduct: (productId: number) => void;
+  checkout: () => void;
 }
 
 const Cart: SFC<CartProps> = ({
@@ -20,6 +21,7 @@ const Cart: SFC<CartProps> = ({
   increaseQuantity,
   decreaseQuantity,
   removeProduct,
+  checkout,
 }) => {
   if(!products.length) {
     return (
@@ -43,7 +45,7 @@ const Cart: SFC<CartProps> = ({
           />
         ))
       }
-      <Button as={Link} to='/checkout' className={styles.checkout}>
+      <Button as={Link} onClick={checkout} to='/checkout' className={styles.checkout}>
         Checkout
       </Button>
     </div>

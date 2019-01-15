@@ -9,4 +9,4 @@ export interface AppState {
   cart: CartState;
 }
 
-export type Dispatch = ReduxDispatch<Action, AppState>;
+export type Dispatch = ReduxDispatch<Action>;
